@@ -97,102 +97,106 @@
 }
 /* ----- Museo Sans ------ */
 @font-face {
-  font-family: "MuseoSans Light";
+  font-family: "MuseoSans";
   src: local("LG Display-Light");
-  font-weight: normal;
+  font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: "MuseoSans Light";
+  font-family: "MuseoSans";
   src: local("Museo SansLight"), url("../fonts/MuseoSans/Museo SansLight.woff") format("woff"), url("../fonts/MuseoSans/Museo SansLight.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 100;
   font-style: normal;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   src: local("LG Display-Light");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   src: local("Museo SansNormal"), url("../fonts/MuseoSans/Museo SansNormal.woff") format("woff"), url("../fonts/MuseoSans/Museo SansNormal.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans Medium";
+  font-family: "MuseoSans";
   src: local("LG Display-Light");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "MuseoSans Medium";
+  font-family: "MuseoSans";
   src: local("Museo SansDemiBold"), url("../fonts/MuseoSans/Museo SansDemiBold.woff") format("woff"), url("../fonts/MuseoSans/Museo SansDemiBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans Medium Italic";
+  font-family: "MuseoSans";
   src: local("LG Display-Light");
+  font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "MuseoSans Medium Italic";
+  font-family: "MuseoSans";
   src: local("Museo SansDemiBoldItalic"), url("../fonts/MuseoSans/Museo SansDemiBoldItalic.woff") format("woff"), url("../fonts/MuseoSans/Museo SansDemiBoldItalic.ttf") format("truetype");
+  font-weight: normal;
   font-style: italic;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   src: local("LG Display-Regular");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   src: local("Museo SansBold"), url("../fonts/MuseoSans/Museo SansBold.woff") format("woff"), url("../fonts/MuseoSans/Museo SansBold.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   src: local("LG Display-Regular");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   src: local("Museo SansBoldItalic"), url("../fonts/MuseoSans/Museo SansBoldItalic.woff") format("woff"), url("../fonts/MuseoSans/Museo SansBoldItalic.ttf") format("truetype");
+  font-weight: 700;
   font-style: italic;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans Bold";
+  font-family: "MuseoSans";
   src: local("LG Display-Regular");
-  font-weight: bold;
+  font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: "MuseoSans Bold";
+  font-family: "MuseoSans";
   src: local("Museo SansBlack"), url("../fonts/MuseoSans/Museo SansBlack.woff") format("woff"), url("../fonts/MuseoSans/Museo SansBlack.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 900;
   font-style: normal;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
 @font-face {
-  font-family: "MuseoSans Bold Italic";
+  font-family: "MuseoSans";
   src: local("LG Display-Regular");
-  font-weight: bold;
+  font-weight: 900;
   font-style: italic;
 }
 @font-face {
-  font-family: "MuseoSans Bold Italic";
+  font-family: "MuseoSans";
   src: local("Museo SansBlackItalic"), url("../fonts/MuseoSans/Museo SansBlackItalic.woff") format("woff"), url("../fonts/MuseoSans/Museo SansBlackItalic.ttf") format("truetype");
+  font-weight: 900;
   font-style: italic;
   unicode-range: U+20-7E, U+A0-17F, U+192, U+218-21B, U+2C6-2C7, U+2D8-2DD, U+3BC, U+1E9E, U+2009, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+2044, U+2070, U+2074-2079, U+2080-2089, U+20AC, U+2122, U+2212, U+221E, U+2248, U+2260, U+2264-2265, U+FB00-FB04;
 }
@@ -369,7 +373,7 @@
 }
 /* Common classes applicable to multiple controls */
 .moon {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
   letter-spacing: 0;
   padding: 20px;
@@ -423,9 +427,9 @@
   text-transform: uppercase;
 }
 .moon-sub-header-text {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -446,17 +450,17 @@
   text-transform: uppercase;
 }
 .moon-divider-text {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 0;
   color: #a6a6a6;
 }
 .moon-body-text {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -563,9 +567,9 @@
   -webkit-font-kerning: normal;
 }
 .moon-sub-header-text {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -588,17 +592,17 @@
   -webkit-font-kerning: normal;
 }
 .moon-divider-text {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 0;
   color: #a6a6a6;
 }
 .moon-body-text {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -621,9 +625,9 @@
   text-decoration: none;
 }
 .moon-bold-text {
-  font-family: "MuseoSans Bold";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -981,9 +985,9 @@
 }
 .moon-simple-integer-picker {
   white-space: nowrap;
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1032,9 +1036,9 @@
   height: 36px;
 }
 .moon-simple-integer-picker-item {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1343,9 +1347,9 @@
 }
 /* Item.css */
 .moon-item {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1633,9 +1637,9 @@
   padding: 0;
 }
 .moon-radio-item-group .moon-button {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   display: inline-block;
@@ -1696,9 +1700,9 @@
   margin-bottom: 10px;
 }
 .moon-expandable-list-item-client .moon-item {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1775,9 +1779,9 @@
 }
 /* Current Value */
 .moon-expandable-picker-current-value {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   line-height: 32px;
@@ -1833,9 +1837,9 @@
   margin: 0px 0px 10px 0px;
 }
 .moon-expandable-integer-picker.open .moon-expandable-integer-picker-header {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1850,9 +1854,9 @@
   font-style: normal;
 }
 .moon-expandable-integer-picker-current-value {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1945,9 +1949,9 @@
 /* Title Below */
 .moon-header-title-below {
   position: relative;
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -1960,9 +1964,9 @@
 /* Sub Title Below */
 .moon-header-sub-title-below {
   position: relative;
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2079,17 +2083,17 @@
   overflow: hidden;
 }
 .moon-gridlist-imageitem .caption {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
 }
 .moon-gridlist-imageitem .sub-caption {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2278,9 +2282,9 @@
 }
 /* Input.css */
 .moon-input {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2337,9 +2341,9 @@
 }
 /* InputDecorator.css */
 .moon-input-decorator:not(.moon-input-header-input-decorator) {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2354,9 +2358,9 @@
   padding: 5px 30px 9px;
 }
 .moon-textarea-decorator {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 22px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2529,9 +2533,9 @@
 }
 /* RichText.css */
 .moon-richtext {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2753,9 +2757,9 @@
 }
 /* TextArea.css */
 .moon-textarea {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2896,9 +2900,9 @@
 }
 /* Label */
 .moon-labeledtextitem .label {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -2917,9 +2921,9 @@
 }
 /* Text */
 .moon-labeledtextitem .text {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -3239,9 +3243,9 @@
   margin: 10px;
 }
 .moon-calendar-picker-day {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -3271,9 +3275,9 @@
   margin: 30px 0px 0px 0px;
 }
 .moon-calendar-picker-date {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -3294,9 +3298,9 @@
   font-size: 30px;
 }
 .moon-calendar-picker-date.moon-button.small {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4031,7 +4035,7 @@
 /* ---- Header info styling ---- */
 .moon-video-player-header {
   width: 100%;
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
   letter-spacing: 0;
   color: #ffffff;
@@ -4156,9 +4160,9 @@
   white-space: nowrap;
 }
 .moon-video-player-info-subtitle {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4172,9 +4176,9 @@
   color: #ffffff;
 }
 .moon-video-player-info-subsubtitle {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4209,9 +4213,9 @@
   color: #ffffff;
 }
 .moon-video-player-info-description {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4278,9 +4282,9 @@
   white-space: nowrap;
 }
 .moon-video-player-channel-info-name {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4292,9 +4296,9 @@
   font-family: "LG Display";
 }
 .moon-video-player-info-icon {
-  font-family: "MuseoSans 700";
+  font-family: "MuseoSans";
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4410,9 +4414,9 @@
   line-height: 62px;
 }
 .moon-clock-meridiem {
-  font-family: "MuseoSans Bold";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
@@ -4782,9 +4786,9 @@
   -webkit-box-orient: vertical;
 }
 .moon-expandable-text .moon-item.moon-expandable-text-button {
-  font-family: "MuseoSans 300";
+  font-family: "MuseoSans";
   font-size: 26px;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 0;
   color: #a6a6a6;
