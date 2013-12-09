@@ -64,7 +64,7 @@
 }
 @font-face {
   font-family: "Miso";
-  src: local("Miso"), url("../fonts/miso/miso-regular.woff") format("woff"), url("../fonts/miso/miso-regular.ttf") format("truetype");
+  src: local("Miso-Regular"), url("../fonts/miso/miso-regular.woff") format("woff"), url("../fonts/miso/miso-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   unicode-range: U+0D, U+20-7E, U+A1-FF, U+131, U+141-142, U+152-153, U+160-161, U+178, U+17D-17E, U+192, U+2C6, U+2DC, U+3C6, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+20AC, U+2122;
@@ -76,22 +76,22 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Miso";
-  src: local("Miso"), url("../fonts/miso/miso-bold.woff") format("woff"), url("../fonts/miso/miso-bold.ttf") format("truetype");
-  font-weight: bold;
+  font-family: "Miso Bold";
+  src: local("Miso-Bold"), url("../fonts/miso/miso-bold.woff") format("woff"), url("../fonts/miso/miso-bold.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   unicode-range: U+0D, U+20-7E, U+A1-FF, U+131, U+141-142, U+152-153, U+160-161, U+178, U+17D-17E, U+192, U+2C6, U+2DC, U+3C6, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+20AC, U+2122;
 }
 @font-face {
-  font-family: "Miso";
+  font-family: "Miso Light";
   src: local("LG Display-Light");
-  font-weight: 100;
+  font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Miso";
-  src: local("Miso"), url("../fonts/miso/miso-light.woff") format("woff"), url("../fonts/miso/miso-light.ttf") format("truetype");
-  font-weight: 100;
+  font-family: "Miso Light";
+  src: local("Miso-Light"), url("../fonts/miso/miso-light.woff") format("woff"), url("../fonts/miso/miso-light.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   unicode-range: U+0D, U+20-7E, U+A1-FF, U+131, U+141-142, U+152-153, U+160-161, U+178, U+17D-17E, U+192, U+2C6, U+2DC, U+3C6, U+2013-2014, U+2018-201A, U+201C, U+201D, U+201E, U+2020-2022, U+2026, U+2030, U+2039, U+203A, U+20AC, U+2122;
 }
@@ -112,7 +112,7 @@
 @font-face {
   font-family: "MuseoSans";
   src: local("LG Display-Light");
-  font-weight: 300;
+  font-weight: normal;
   font-style: normal;
 }
 @font-face {
@@ -394,6 +394,7 @@
 .moon-neutral-divider-border {
   border-bottom: 2px solid #ffffff;
 }
+/* Text definitions */
 .moon-header-font {
   font-family: "Miso";
   text-transform: uppercase;
@@ -411,145 +412,6 @@
   line-height: 24px;
   margin: 12px 2px 8px 0px;
   padding: 0px;
-}
-.moon-large-text {
-  font-size: 48px;
-  vertical-align: top;
-  height: 48px;
-  margin: 0px;
-  padding: 0px;
-}
-.moon-header-text {
-  font-family: "Miso";
-  font-size: 126px;
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: uppercase;
-}
-.moon-sub-header-text {
-  font-family: "MuseoSans";
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
-  letter-spacing: 0;
-  color: #4b4b4b;
-}
-.moon-super-header-text {
-  font-family: "Miso";
-  font-size: 32px;
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: normal;
-}
-.moon-popup-header-text {
-  font-family: "Miso";
-  font-size: 73px;
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: uppercase;
-}
-.moon-divider-text {
-  font-family: "MuseoSans";
-  font-size: 22px;
-  font-weight: bold;
-  font-style: italic;
-  letter-spacing: 0;
-  color: #4b4b4b;
-}
-.moon-body-text {
-  font-family: "MuseoSans";
-  font-size: 26px;
-  font-weight: 300;
-  font-style: normal;
-  letter-spacing: 0;
-  color: #4b4b4b;
-  line-height: 32px;
-}
-.moon-body-text-spacing {
-  margin: 0 10px 40px 10px;
-}
-.moon-large-button-text {
-  font-family: "Miso";
-  font-size: 33px;
-  font-weight: bold;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: uppercase;
-  -webkit-font-kerning: normal;
-}
-.moon-small-button-text {
-  font-family: "Miso";
-  font-size: 27px;
-  font-weight: bold;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: uppercase;
-  -webkit-font-kerning: normal;
-}
-.moon-icon-text {
-  font-family: "Moonstone Icons";
-  font-size: 72px;
-  color: #ffffff;
-}
-.enyo-locale-non-latin .moon,
-.enyo-locale-non-latin .moon input,
-.enyo-locale-non-latin .moon textarea,
-.enyo-locale-non-latin .moon button,
-.enyo-locale-non-latin .moon-superscript,
-.enyo-locale-non-latin .moon-pre-text,
-.enyo-locale-non-latin .moon-large-text,
-.enyo-locale-non-latin .moon-header-text,
-.enyo-locale-non-latin .moon-header-font,
-.enyo-locale-non-latin .moon-popup-header-text,
-.enyo-locale-non-latin .moon-sub-header-text,
-.enyo-locale-non-latin .moon-super-header-text,
-.enyo-locale-non-latin .moon-divider-text,
-.enyo-locale-non-latin .moon-body-text,
-.enyo-locale-non-latin .moon-large-button-text,
-.enyo-locale-non-latin .moon-small-button-text {
-  font-family: "LG Display";
-}
-.enyo-locale-non-latin .moon {
-  font-size: 30px;
-}
-.enyo-locale-non-latin .moon-superscript {
-  font-size: 24px;
-}
-.enyo-locale-non-latin .moon-pre-text {
-  font-size: 24px;
-}
-.enyo-locale-non-latin .moon-large-text {
-  font-size: 48px;
-}
-.enyo-locale-non-latin .moon-header-text {
-  font-size: 114px;
-}
-.enyo-locale-non-latin .moon-popup-header-text {
-  font-size: 65px;
-}
-.enyo-locale-non-latin .moon-sub-header-text {
-  font-size: 30px;
-}
-.enyo-locale-non-latin .moon-super-header-text {
-  font-size: 32px;
-}
-.enyo-locale-non-latin .moon-divider-text {
-  font-size: 28px;
-  /* LG display italic is cut off on the right on TV so change it to normal */
-
-  font-style: normal;
-}
-.enyo-locale-non-latin .moon-body-text {
-  font-size: 26px;
-  line-height: 32px;
-}
-.enyo-locale-non-latin .moon-large-button-text {
-  font-size: 36px;
-}
-.enyo-locale-non-latin .moon-small-button-text {
-  font-size: 27px;
 }
 .moon-large-text {
   font-size: 48px;
@@ -699,9 +561,11 @@
   font-size: 30px;
 }
 .enyo-locale-non-latin .moon-superscript {
+  font-weight: 100;
   font-size: 24px;
 }
 .enyo-locale-non-latin .moon-pre-text {
+  font-weight: 100;
   font-size: 24px;
 }
 .enyo-locale-non-latin .moon-large-text {
@@ -724,6 +588,7 @@
   font-style: normal;
 }
 .enyo-locale-non-latin .moon-body-text {
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -1727,6 +1592,7 @@
 }
 .enyo-locale-non-latin .moon-expandable-list-item-client .moon-item {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -1815,6 +1681,7 @@
 }
 .enyo-locale-non-latin .moon-expandable-picker-current-value {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -1848,8 +1715,6 @@
   padding: 0px;
 }
 .enyo-locale-non-latin .moon-expandable-integer-picker.open .moon-expandable-integer-picker-header {
-  /* LG display italic is cut off on the right on TV so change it to normal */
-
   font-family: "LG Display";
   font-size: 28px;
   font-style: normal;
@@ -1883,6 +1748,7 @@
 }
 .enyo-locale-non-latin .moon-expandable-integer-picker-current-value {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -1992,6 +1858,7 @@
 }
 .enyo-locale-non-latin .moon-header-sub-title-below {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -2142,6 +2009,7 @@
 }
 .enyo-locale-non-latin .moon-gridlist-imageitem .sub-caption {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -2177,7 +2045,7 @@
   border-bottom-width: 30px;
   border-bottom-style: solid;
   border-bottom-color: transparent;
-  border-radius: 9999px;
+  border-radius: 45px;
 }
 .spotlight .moon-scroll-picker {
   background: #cf0652;
@@ -2238,13 +2106,13 @@
 .moon-scroll-picker-overlay.top {
   top: 0;
   border-top-style: solid;
-  border-radius: 9999px 9999px 0 0;
+  border-radius: 45px 45px 0 0;
   background: #cf0652 url(../images/LightTheme_Icons/CaratPickerUp_Icon.png) center -60px no-repeat;
 }
 .moon-scroll-picker-overlay.bottom {
   bottom: 0;
   border-bottom-style: solid;
-  border-radius: 0 0 9999px 9999px;
+  border-radius: 0 0 45px 45px;
   background: #cf0652 url(../images/LightTheme_Icons/CaratPickerDown_Icon.png) center -60px no-repeat;
 }
 .moon-scroll-picker-overlay-container.selected .moon-scroll-picker-overlay {
@@ -2316,9 +2184,9 @@
 }
 .enyo-locale-non-latin .moon-input {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
-  max-width: 300px;
 }
 .moon-neutral .moon-input {
   color: #4b4b4b;
@@ -2373,8 +2241,6 @@
 }
 .enyo-locale-non-latin .moon-input-decorator:not(.moon-input-header-input-decorator),
 .enyo-locale-non-latin .moon-textarea-decorator {
-  /* LG display italic is cut off on the right on TV so change it to normal */
-
   font-family: "LG Display";
   font-size: 28px;
   font-style: normal;
@@ -2568,6 +2434,7 @@
 }
 .enyo-locale-non-latin .moon-richtext {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -2791,6 +2658,7 @@
 }
 .enyo-locale-non-latin .moon-textarea {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -2833,6 +2701,17 @@
 .moon-list-actions .moon-icon-button {
   margin: 0;
 }
+.list-actions-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.moon-header .list-actions-drawer {
+  top: -2px;
+  bottom: -6px;
+}
 /* Close button */
 .moon-icon-button.moon-list-actions-close {
   position: absolute;
@@ -2869,10 +2748,10 @@
 .enyo-locale-right-to-left .moon-list-actions-menu {
   float: left;
 }
-.proportional-width.stacked .moon-list-actions-menu {
+.moon-list-actions-drawer.proportional-width.stacked .moon-list-actions-menu {
   width: 100% !important;
 }
-.moon-list-actions.stacked .moon-list-actions-menu {
+.moon-list-actions-drawer.stacked .moon-list-actions-menu {
   margin-bottom: 20px;
   clear: both;
 }
@@ -2948,6 +2827,7 @@
 }
 .enyo-locale-non-latin .moon-labeledtextitem .text {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
@@ -4205,6 +4085,7 @@
 }
 .enyo-locale-non-latin .moon-video-player-info-subsubtitle {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
   color: #ffffff;
@@ -4244,6 +4125,7 @@
 }
 .enyo-locale-non-latin .moon-video-player-info-description {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
   color: #ffffff;
@@ -4715,6 +4597,9 @@
   height: 4px;
   border-radius: 0;
 }
+.moon-neutral .moon-thumb {
+  background: #ffffff;
+}
 .moon-scroller-hthumb,
 .moon-scroller-vthumb {
   transition: opacity 0.1s linear;
@@ -4817,6 +4702,7 @@
 }
 .enyo-locale-non-latin .moon-expandable-text .moon-item.moon-expandable-text-button {
   font-family: "LG Display";
+  font-weight: 100;
   font-size: 26px;
   line-height: 32px;
 }
