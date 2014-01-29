@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Webkit DOM Element Render Slowdown Demo</title>  
+		<style type="text/css">
+@-webkit-keyframes updown {
+  0%   { height: 100%; }
+  50% { height: 0%; }
+  100% { height: 100%; }
+}
+@-webkit-keyframes doubleScaleUpOuter {
+  0%   { height: 100%; }
+  100% { height: 0%; }
+}
+@-webkit-keyframes doubleScaleUpInner {
+  0%       { height: scaleY(1); }
+  50%      { height: scaleY(2); }
+  75%      { height: scaleY(4); }
+  87.5%    { height: scaleY(8); }
+  93.75%   { height: scaleY(16); }
+  96.875%  { height: scaleY(32); }
+  98.4375% { height: scaleY(64); }
+  100%     { height: scaleY(128); }
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+.updown {
+  -webkit-animation: updown 2s infinite;
+}
+.doubleScaleUpInner {
+  -webkit-animation: updown 2s infinite;
+}
+.updown-trans {
+	-webkit-transition: height 1s ease-in-out;
+}
+.clip-trans {
+	-webkit-transition: clip 1s ease-in-out;
+}
+.opacity-trans {
+	-webkit-transition: opacity 1s ease-in-out;
+}
+.move-trans {
+	-webkit-transition: top 1s ease-in-out;
+}
+.scale-trans {
+	-webkit-transition: -webkit-transform 1s ease-in-out;
+	-webkit-transform: scaleY(1);
+	-webkit-transform-origin-y: 0px;
+}
+.doublescale-trans {
+	-webkit-transition: -webkit-transform 4s;
+	-webkit-transform: scaleY(1) rotateX(0deg);
+	-webkit-transform-origin-y: 0px;
+}
+#wrapper.doublescale-trans {
+	-webkit-transition-timing-function: linear;
+	-webkit-transform-origin-x: 50%;
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 500px;
+}
+#container.doublescale-trans {
+	-webkit-transition-timing-function: cubic-bezier(1, 0.02, 1, 0);
+}
+
+.matrix-trans {
+	-webkit-transition: -webkit-transform 1s ease-in-out;
+	-webkit-transform: scaleY(1);
+	-webkit-transform-origin-y: 0px;
+}
+.mask-trans {
+	-webkit-transition: -webkit-mask-position 1s ease-in-out;
+	-webkit-mask-position: 0 0%;
+	-webkit-mask-size: 100% 200%;
+	-webkit-mask-image: -webkit-gradient(linear,center top, center bottom, color-stop(0.00, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,0)), color-stop(1.00, rgba(0,0,0,0)));
+}
+.hwaccel {
+  -webkit-transform: translateZ(0px);
+}
+#container::after {
+	content: "";
+	display: block;
+}
+.controls {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	border-radius: 1em;
+	background-color: blanchedalmond;
+	padding: 20px;
+}
+.controls input {
+	width: 100%;
+}
+</style>
+		<script type="text/javascript">//<![CDATA[
+
+var funOnTransitionEnd = function() {};
+
+// Set up some utility methods
+Element.prototype.setClassAttribute = function(inClass) {
+	this.className = inClass;
+};
+Element.prototype.getClassAttribute = function() {
+	return this.className || "";
+};
+Element.prototype.hasClass = function(inClass) {
+	return inClass && ((" " + this.getClassAttribute() + " ").indexOf(" " + inClass + " ") >= 0);
+};
+Element.prototype.addClass = function(inClass) {
+	if (inClass && !this.hasClass(inClass)) {
+		var c = this.getClassAttribute();
+		this.setClassAttribute(c + (c ? " " : "") + inClass);
+	}
+};
+Element.prototype.removeClass = function(inClass) {
+	if (inClass && this.hasClass(inClass)) {
+		var c = this.getClassAttribute();
+		c = (" " + c + " ").replace(" " + inClass + " ", " ").slice(1, -1);
+		this.setClassAttribute(c);
+	}
+};
+Element.prototype.addRemoveClass = function(inClass, inTrueToAdd) {
+	this[inTrueToAdd ? "addClass" : "removeClass"](inClass);
+};
+
+
+
+function setContentAmount(intAmount) {
+	var c = document.getElementById("container"),
+		s = "";
+	for (var i=0; i<intAmount; i++) {
+	    s += "<div style='display: inline-block; background: white; width: 100px; margin: 10px;'><div>Line 1</div><div>Line 2</div><div>Line 3</div><div>Line 4<div>Line 4.1</div><div>Line 4.2</div></div></div>"
+	}
+	c.innerHTML = s;
+}
+
+function setMethod(strMethod) {
+	var c = document.getElementById("container"),
+		w = document.getElementById("wrapper");
+
+	// Remove any listeners we set earlier
+	c.removeEventListener("transitionend", funOnTransitionEnd, false);
+	w.removeEventListener("transitionend", funOnTransitionEnd, false);
+
+	// Reset everything
+	c.style.clip = "inherit";
+	c.removeClass("clip-trans");
+	w.style.opacity = "inherit";
+	w.removeClass("opacity-trans");
+	w.style.top = "10px";
+	w.removeClass("move-trans");
+	c.style.top = "webkitTransform";
+	c.removeClass("scale-trans");
+	c.removeClass("doublescale-trans");
+	w.style.top = "webkitTransform";
+	w.removeClass("doublescale-trans");
+	c.style.webkitMaskPositionY = "inherit";
+	c.removeClass("mask-trans");
+	w.style.height = "inherit";
+	w.removeClass("updown-trans");
+
+	switch (strMethod) {
+		case "none":
+			break;
+		case "clip":
+			c.addClass("clip-trans");
+			var start = "rect(0px " + w.offsetWidth + "px " + w.offsetHeight + "px 0px)",
+				end = "rect(0px " + w.offsetWidth + "px 0px 0px)";
+			c.style.clip = start;
+			funOnTransitionEnd = function() {
+				c.style.clip = c.style.clip!=end ? end : start;
+				// c.style.clip = (c.style.clip.indexOf(" 0px 0px") > -1) ? start : end;
+			};
+			console.log("clip:",c.style.clip, start, (c.style.clip == start));
+			c.addEventListener("transitionend", funOnTransitionEnd, false);
+			// OMG TOO FAST
+			// c.style.clip = end;
+			// MUST SLOW THIS LADY DOWN! Delay by 1ms
+			window.setTimeout(function() { c.style.clip = end }, 1);
+			console.log("clip:",c.style.clip, end, (c.style.clip == end));
+			break;
+		case "opacity":
+			w.addClass("opacity-trans");
+			var start = 1,
+				end = 0;
+			w.style.opacity = start;
+			funOnTransitionEnd = function() {
+				w.style.opacity = w.style.opacity!=end ? end : start;
+			};
+			w.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.opacity = end;
+			break;
+		case "move":
+			w.addClass("move-trans");
+			var start = "10px",
+				end = "-1060px";
+			w.style.top = start;
+			funOnTransitionEnd = function() {
+				w.style.top = w.style.top!=end ? end : start;
+			};
+			w.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.top = end;
+			break;
+		case "scale":
+			w.addClass("scale-trans");
+			var start = "scaleY(1)",
+				end = "scaleY(0)";
+			w.style.webkitTransform = start;
+			funOnTransitionEnd = function() {
+				w.style.webkitTransform = w.style.webkitTransform!=end ? end : start;
+			};
+			w.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.webkitTransform = end;
+			break;
+		case "doublescale":
+			c.addClass("doublescale-trans");
+			w.addClass("doublescale-trans");
+			var wStart = "scaleY(1)",
+				// cStart = "rotateX(10deg)",
+				cStart = "scaleY(1)",
+				wEnd = "scaleY(0)",
+				// cEnd = "rotateX(90deg)";
+				cEnd = "scaleY(64)";
+				// cEnd = "scaleY(32)";
+			w.style.webkitTransform = wStart;
+			c.style.webkitTransform = cStart;
+			funOnTransitionEnd = function() {
+				if (c.style.webkitTransform!=cEnd) {
+					console.log("transitionEnd %s -> %s", c.style.webkitTransform, cEnd);
+					w.style.webkitTransform = wEnd;
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)";
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.895, 0.03, 0.685, 0.22)";
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.755, 0.05, 0.855, 0.06)"; // Good
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.6, 0.04, 0.98, 0.335)";
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)"; // Best
+					c.style.webkitTransitionTimingFunction = "cubic-bezier(1, 0.02, 1, 0)";
+					// c.style.webkitTransitionDuration = "5s";
+					c.style.webkitTransform = cEnd;
+				}
+				else {
+					console.log("transitionEnd %s -> %s", c.style.webkitTransform, cStart);
+					w.style.webkitTransform = wStart;
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)";
+					// c.style.webkitTransitionDuration = "0.2s";
+					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.165, 0.84, 0.44, 1)";
+					c.style.webkitTransitionTimingFunction = "cubic-bezier(0.02, 1, 0, 1)";
+					c.style.webkitTransform = cStart;
+				}
+			};
+			c.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.webkitTransform = wEnd;
+			c.style.webkitTransform = cEnd;
+			break;
+		case "matrix":
+			w.addClass("matrix-trans");
+			var start = "matrix(1, 0, 0, 1, 0, 0)",
+				end = "matrix(1, 0, 0, 1, 0, "+ (w.offsetHeight * -1) +")";
+			w.style.webkitTransform = start;
+			funOnTransitionEnd = function() {
+				w.style.webkitTransform = w.style.webkitTransform!=end ? end : start;
+			};
+			w.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.webkitTransform = end;
+			console.log("webkitTransform:",c.style.webkitTransform, end, (c.style.webkitTransform == end));
+			// window.setTimeout(function() { w.style.webkitTransform = end }, 1);
+			break;
+		case "mask":
+			c.addClass("mask-trans");
+			var start = "0%",
+				end = "100%";
+			c.style.webkitMaskPositionY = start;
+			funOnTransitionEnd = function() {
+				c.style.webkitMaskPositionY = c.style.webkitMaskPositionY!=end ? end : start;
+			};
+			c.addEventListener("transitionend", funOnTransitionEnd, false);
+			window.setTimeout(function() { c.style.webkitMaskPositionY = end }, 1);
+			break;
+		default:
+			w.addClass("updown-trans");
+			var start = "1060px",
+				end = "0px";
+			w.style.height = start;
+			funOnTransitionEnd = function() {
+				w.style.height = w.style.height!=end ? end : start;
+			};
+			w.addEventListener("transitionend", funOnTransitionEnd, false);
+			w.style.height = end;
+	}
+}
+
+window.onload=function(){
+	var c = document.getElementById("container"),
+		w = document.getElementById("wrapper");
+	c.style.height = w.offsetHeight + "px";
+	c.style.width = w.offsetWidth + "px";
+	setContentAmount(10);
+	setMethod("doublescale");
+}
+
+//]]>
+</script>
+	</head>
+
+	<body>
+		<div style="position: absolute; top:0; left:0; bottom: 0; width: 1000px; height: 1080px; background: lightblue; overflow:hidden;" class="">
+			<div style="position: relative; left: 10px; top: 10px; width: 980px; height: 1060px; overflow:hidden;" class="hwaccel" id="wrapper">
+				<div style="position: absolute; background-color: orange;overflow:hidden;" id="container" class="hwaccel"></div>
+			</div>
+		</div>
+
+		<div class="controls">
+			<input type="button" onclick="setContentAmount(2)"    value="Set 2 Elements" /><br>
+			<input type="button" onclick="setContentAmount(20)"   value="Set 20 Elements" /><br>
+			<input type="button" onclick="setContentAmount(200)"  value="Set 200 Elements" /><br>
+			<input type="button" onclick="setContentAmount(500)"  value="Set 500 Elements" /><br>
+			<input type="button" onclick="setContentAmount(1000)" value="Set 1000 Elements" /><br>
+			<input type="button" onclick="setContentAmount(1500)" value="Set 1500 Elements" /><br>
+			<input type="button" onclick="setContentAmount(2000)" value="Set 2000 Elements" /><br><br>
+			<input type="button" onclick="setMethod('clip')"      value="Set Method Clip" /><br>
+			<input type="button" onclick="setMethod('opacity')"   value="Set Method Opacity" /><br>
+			<input type="button" onclick="setMethod('move')"      value="Set Method Move" /><br>
+			<input type="button" onclick="setMethod('scale')"     value="Set Method Scale" /><br>
+			<input type="button" onclick="setMethod('doublescale')" value="Set Method Double Scale" /><br>
+			<input type="button" onclick="setMethod('matrix')"    value="Set Method Matrix" /><br>
+			<input type="button" onclick="setMethod('mask')"      value="Set Method Mask" /><br>
+			<input type="button" onclick="setMethod('height')"    value="Set Method Height" /><br><br>
+			<input type="button" onclick="setMethod('none')"      value="Remove Transition" /><br><br>
+			<input type="button" onclick="window.location.reload()" value="Reload the page" />
+		</div>
+	</body>
+</html>
