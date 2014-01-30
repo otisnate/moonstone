@@ -2,7 +2,16 @@
 .moon-audio-playback {
 	background-color: @moon-audio-playback-bg-color;
 	font-size: 30px;
+	// direction: ltr;
 }
+// .moon-audio-playback-controls,
+// .moon-audio-play-controls {
+// 	direction: ltr;
+// }
+// .moon-audio-playback .enyo-fittable-columns-layout {
+// 	direction: ltr;
+// 	text-align: left;
+// }
 .moon-audio-playback-track-icon {
 	position: relative;
 	top: 6px;
@@ -64,10 +73,14 @@
 	.moon-audio-icon-button.right {
 		float: left;
 	}
+	.moon-audio-slider-controls-container {
+		direction: ltr;
+	}
 }
 /* AudioPlayback styles for Slider */
 .moon-audio-slider-container {
 	padding-top: 10px;
+	direction: ltr;
 }
 .moon-audio-slider.spotlight > .moon-slider-knob {
 	background-color: @moon-audio-slider-knob-spotlight-bg-color;
@@ -93,7 +106,7 @@
 	background-color: @moon-audio-progress-bar-bg-color;
 	margin: 0px;
 	top: 10px;
-	direction: ltr;
+	// direction: ltr;
 }
 .moon-audio-slider > .moon-progress-bar-bar {
 	background-color: @moon-audio-progress-bar-bar-bg-color;
