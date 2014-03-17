@@ -30,59 +30,34 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
-.updown {
-  -webkit-animation: updown 2s infinite;
+.frame {
+	position: absolute;
+	top:0;
+	left:0;
+	bottom: 0;
+	width: 1000px;
+	height: 1080px;
+	overflow: hidden;
+	background-color: #6289A5;
 }
-.doubleScaleUpInner {
-  -webkit-animation: updown 2s infinite;
+.outer {
+	position: relative;
+	left: 10px;
+	top: 10px;
+	width: 980px;
+	height: 1060px;
+	overflow: hidden;
 }
-.updown-trans {
-	-webkit-transition: height 1s ease-in-out;
-}
-.clip-trans {
-	-webkit-transition: clip 1s ease-in-out;
-}
-.opacity-trans {
-	-webkit-transition: opacity 1s ease-in-out;
-}
-.move-trans {
-	-webkit-transition: top 1s ease-in-out;
-}
-.scale-trans {
-	-webkit-transition: -webkit-transform 1s ease-in-out;
-	-webkit-transform: scaleY(1);
-	-webkit-transform-origin-y: 0px;
-}
-.doublescale-trans {
-	-webkit-transition: -webkit-transform 4s;
-	-webkit-transform: scaleY(1) rotateX(0deg);
-	-webkit-transform-origin-y: 0px;
-}
-#wrapper.doublescale-trans {
-	-webkit-transition-timing-function: linear;
-	-webkit-transform-origin-x: 50%;
-	-webkit-transform-style: preserve-3d;
-	-webkit-perspective: 500px;
-}
-#container.doublescale-trans {
-	-webkit-transition-timing-function: cubic-bezier(1, 0.02, 1, 0);
+.inner {
+	position: absolute;
+	width: 980px;
+	height: 1060px;
+	background-image: url(http://resourcefork.com/img/grit-light.png);
+	background-color: orange;
+	overflow: hidden;
 }
 
-.matrix-trans {
-	-webkit-transition: -webkit-transform 1s ease-in-out;
-	-webkit-transform: scaleY(1);
-	-webkit-transform-origin-y: 0px;
-}
-.mask-trans {
-	-webkit-transition: -webkit-mask-position 1s ease-in-out;
-	-webkit-mask-position: 0 0%;
-	-webkit-mask-size: 100% 200%;
-	-webkit-mask-image: -webkit-gradient(linear,center top, center bottom, color-stop(0.00, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,0)), color-stop(1.00, rgba(0,0,0,0)));
-}
-.hwaccel {
-  -webkit-transform: translateZ(0px);
-}
-#container::after {
+#inner::after {
 	content: "";
 	display: block;
 }
@@ -90,13 +65,140 @@ html, body {
 	position: absolute;
 	top: 50px;
 	right: 50px;
+	width: 25ex;
 	border-radius: 1em;
-	background-color: blanchedalmond;
+	background-color: #F2F3F2;
 	padding: 20px;
+}
+.controls h4 {
+	margin: 0 0 0.8em 0;
+	font-size: 110%;
+	font-family: sans-serif;
+	font-variant: small-caps;
 }
 .controls input {
 	width: 100%;
+	background-color: #E5E5E5;
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%,rgba(255, 255, 255, 0.3) 50%,rgba(0, 0, 0, 0) 50%,rgba(0, 0, 0, 0.1) 100%);
+	border-radius: 1em;
+	border: 1px solid #83A907;
+	color: #000;
+	margin: 4px 0 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
+.controls input:hover {
+	background-color: #CADE89;
+}
+.controls input:active {
+	background-color: #83A907;
+	margin: 5px 0 3px;
+	box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
+}
+.controls input:focus {
+	outline-style: none;
+}
+.controls .active {
+	background-color: #4D740D;
+	color: #E5E5E5;
+}
+.controls .active:hover {
+	background-color: #56810E;
+}
+.hwaccel {
+	-webkit-transform: translateZ(0px);
+}
+
+
+.updown {
+	-webkit-animation: updown 2s infinite;
+}
+.doubleScaleUpInner {
+	-webkit-animation: updown 2s infinite;
+}
+
+
+.clip-trans {
+	-webkit-transition: clip 1s ease-in-out;
+	clip: rect(0px 980px 1060px 0px);
+}
+.clip-trans.end {
+	clip: rect(0px 980px 0px 0px);
+}
+
+.height-trans {
+	-webkit-transition: height 1s ease-in-out;
+	height: 1060px;
+}
+.height-trans.end {
+	height: 0px;
+}
+
+.mask-trans {
+	-webkit-transition: -webkit-mask-position 1s ease-in-out;
+	-webkit-mask-position: 0 0%;
+	-webkit-mask-size: 100% 200%;
+	-webkit-mask-image: -webkit-gradient(linear,center top, center bottom, color-stop(0.00, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,1)), color-stop(0.5, rgba(0,0,0,0)), color-stop(1.00, rgba(0,0,0,0)));
+}
+.mask-trans.end {
+	-webkit-mask-position-y: 100%;
+}
+
+.matrix-trans {
+	-webkit-transition: -webkit-transform 1s ease-in-out;
+	-webkit-transform-origin-y: 0px;
+	-webkit-transform: matrix(1, 0, 0, 1, 0, 0),
+}
+.matrix-trans.end {
+	-webkit-transform: matrix(1, 0, 0, 1, 0, -1060);
+}
+
+.move-trans {
+	-webkit-transition: top 1s ease-in-out;
+	top: 10px;
+}
+.move-trans.end {
+	top: -1060px;
+}
+
+.opacity-trans {
+	-webkit-transition: opacity 1s ease-in-out;
+	opacity: 1;
+}
+.opacity-trans.end {
+	opacity: 0;
+}
+
+.scale-trans {
+	-webkit-transition: -webkit-transform 1s ease-in-out;
+	-webkit-transform: scaleY(1);
+	-webkit-transform-origin-y: 0px;
+}
+.scale-trans.end {
+	-webkit-transform: scaleY(0);
+}
+
+.doublescale-trans,
+.doublescale-trans #inner {
+	-webkit-transition: -webkit-transform 4s;
+	-webkit-transform-origin: 50% 0px;
+	-webkit-transform: scaleY(1);
+}
+.doublescale-trans {
+	-webkit-transition-timing-function: linear;
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 500px;
+}
+.doublescale-trans #inner {
+	-webkit-transition-timing-function: cubic-bezier(0.02, 1, 0, 1);
+}
+.doublescale-trans.end {
+	-webkit-transform: scaleY(0);
+}
+.doublescale-trans.end #inner {
+	-webkit-transition-timing-function: cubic-bezier(1, 0.02, 1, 0);
+	-webkit-transform: scaleY(64);
+}
+
 </style>
 		<script type="text/javascript">//<![CDATA[
 
@@ -129,11 +231,17 @@ Element.prototype.addRemoveClass = function(inClass, inTrueToAdd) {
 	this[inTrueToAdd ? "addClass" : "removeClass"](inClass);
 };
 
-
-
+function setActive(button) {
+	button.addClass("active");
+}
 function setContentAmount(intAmount) {
-	var c = document.getElementById("container"),
+	var c = document.getElementById("inner"),
 		s = "";
+	document.getElementById("content-amount").innerHTML = "Children: " + intAmount;
+	var arrMethodButtons = document.getElementsByClassName("amount-button");
+	for (var i = 0; i < arrMethodButtons.length; i++) {
+		arrMethodButtons[i].removeClass("active");
+	};
 	for (var i=0; i<intAmount; i++) {
 	    s += "<div style='display: inline-block; background: white; width: 100px; margin: 10px;'><div>Line 1</div><div>Line 2</div><div>Line 3</div><div>Line 4<div>Line 4.1</div><div>Line 4.2</div></div></div>"
 	}
@@ -141,166 +249,61 @@ function setContentAmount(intAmount) {
 }
 
 function setMethod(strMethod) {
-	var c = document.getElementById("container"),
-		w = document.getElementById("wrapper");
+	var c = document.getElementById("inner"),
+		w = document.getElementById("outer"),
+		catchupDelay = 5;
 
 	// Remove any listeners we set earlier
 	c.removeEventListener("transitionend", funOnTransitionEnd, false);
 	w.removeEventListener("transitionend", funOnTransitionEnd, false);
 
-	// Reset everything
-	c.style.clip = "inherit";
-	c.removeClass("clip-trans");
-	w.style.opacity = "inherit";
-	w.removeClass("opacity-trans");
-	w.style.top = "10px";
-	w.removeClass("move-trans");
-	c.style.top = "webkitTransform";
-	c.removeClass("scale-trans");
-	c.removeClass("doublescale-trans");
-	w.style.top = "webkitTransform";
-	w.removeClass("doublescale-trans");
-	c.style.webkitMaskPositionY = "inherit";
-	c.removeClass("mask-trans");
-	w.style.height = "inherit";
-	w.removeClass("updown-trans");
+	var objTransitions = {
+			clip: {actor: c},
+			opacity: {actor: w},
+			move: {actor: w},
+			scale: {actor: w},
+			doublescale: {actor: w},
+			mask: {actor: c},
+			matrix: {actor: w},
+			height: {actor: w}
+		};
 
-	switch (strMethod) {
-		case "none":
-			break;
-		case "clip":
-			c.addClass("clip-trans");
-			var start = "rect(0px " + w.offsetWidth + "px " + w.offsetHeight + "px 0px)",
-				end = "rect(0px " + w.offsetWidth + "px 0px 0px)";
-			c.style.clip = start;
-			funOnTransitionEnd = function() {
-				c.style.clip = c.style.clip!=end ? end : start;
-				// c.style.clip = (c.style.clip.indexOf(" 0px 0px") > -1) ? start : end;
-			};
-			console.log("clip:",c.style.clip, start, (c.style.clip == start));
-			c.addEventListener("transitionend", funOnTransitionEnd, false);
-			// OMG TOO FAST
-			// c.style.clip = end;
-			// MUST SLOW THIS LADY DOWN! Delay by 1ms
-			window.setTimeout(function() { c.style.clip = end }, 1);
-			console.log("clip:",c.style.clip, end, (c.style.clip == end));
-			break;
-		case "opacity":
-			w.addClass("opacity-trans");
-			var start = 1,
-				end = 0;
-			w.style.opacity = start;
-			funOnTransitionEnd = function() {
-				w.style.opacity = w.style.opacity!=end ? end : start;
-			};
-			w.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.opacity = end;
-			break;
-		case "move":
-			w.addClass("move-trans");
-			var start = "10px",
-				end = "-1060px";
-			w.style.top = start;
-			funOnTransitionEnd = function() {
-				w.style.top = w.style.top!=end ? end : start;
-			};
-			w.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.top = end;
-			break;
-		case "scale":
-			w.addClass("scale-trans");
-			var start = "scaleY(1)",
-				end = "scaleY(0)";
-			w.style.webkitTransform = start;
-			funOnTransitionEnd = function() {
-				w.style.webkitTransform = w.style.webkitTransform!=end ? end : start;
-			};
-			w.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.webkitTransform = end;
-			break;
-		case "doublescale":
-			c.addClass("doublescale-trans");
-			w.addClass("doublescale-trans");
-			var wStart = "scaleY(1)",
-				// cStart = "rotateX(10deg)",
-				cStart = "scaleY(1)",
-				wEnd = "scaleY(0)",
-				// cEnd = "rotateX(90deg)";
-				cEnd = "scaleY(64)";
-				// cEnd = "scaleY(32)";
-			w.style.webkitTransform = wStart;
-			c.style.webkitTransform = cStart;
-			funOnTransitionEnd = function() {
-				if (c.style.webkitTransform!=cEnd) {
-					console.log("transitionEnd %s -> %s", c.style.webkitTransform, cEnd);
-					w.style.webkitTransform = wEnd;
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)";
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.895, 0.03, 0.685, 0.22)";
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.755, 0.05, 0.855, 0.06)"; // Good
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.6, 0.04, 0.98, 0.335)";
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)"; // Best
-					c.style.webkitTransitionTimingFunction = "cubic-bezier(1, 0.02, 1, 0)";
-					// c.style.webkitTransitionDuration = "5s";
-					c.style.webkitTransform = cEnd;
-				}
-				else {
-					console.log("transitionEnd %s -> %s", c.style.webkitTransform, cStart);
-					w.style.webkitTransform = wStart;
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.95, 0.05, 0.795, 0.035)";
-					// c.style.webkitTransitionDuration = "0.2s";
-					// c.style.webkitTransitionTimingFunction = "cubic-bezier(0.165, 0.84, 0.44, 1)";
-					c.style.webkitTransitionTimingFunction = "cubic-bezier(0.02, 1, 0, 1)";
-					c.style.webkitTransform = cStart;
-				}
-			};
-			c.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.webkitTransform = wEnd;
-			c.style.webkitTransform = cEnd;
-			break;
-		case "matrix":
-			w.addClass("matrix-trans");
-			var start = "matrix(1, 0, 0, 1, 0, 0)",
-				end = "matrix(1, 0, 0, 1, 0, "+ (w.offsetHeight * -1) +")";
-			w.style.webkitTransform = start;
-			funOnTransitionEnd = function() {
-				w.style.webkitTransform = w.style.webkitTransform!=end ? end : start;
-			};
-			w.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.webkitTransform = end;
-			console.log("webkitTransform:",c.style.webkitTransform, end, (c.style.webkitTransform == end));
-			// window.setTimeout(function() { w.style.webkitTransform = end }, 1);
-			break;
-		case "mask":
-			c.addClass("mask-trans");
-			var start = "0%",
-				end = "100%";
-			c.style.webkitMaskPositionY = start;
-			funOnTransitionEnd = function() {
-				c.style.webkitMaskPositionY = c.style.webkitMaskPositionY!=end ? end : start;
-			};
-			c.addEventListener("transitionend", funOnTransitionEnd, false);
-			window.setTimeout(function() { c.style.webkitMaskPositionY = end }, 1);
-			break;
-		default:
-			w.addClass("updown-trans");
-			var start = "1060px",
-				end = "0px";
-			w.style.height = start;
-			funOnTransitionEnd = function() {
-				w.style.height = w.style.height!=end ? end : start;
-			};
-			w.addEventListener("transitionend", funOnTransitionEnd, false);
-			w.style.height = end;
+	// Reset everything
+	c.removeClass("end");
+	w.removeClass("end");
+
+	for (var trans in objTransitions) {
+		c.removeClass(trans + "-trans");
+		w.removeClass(trans + "-trans");
+	}
+	var arrMethodButtons = document.getElementsByClassName("method-button");
+	for (var i = 0; i < arrMethodButtons.length; i++) {
+		arrMethodButtons[i].removeClass("active");
+	};
+
+
+	var actor = objTransitions[strMethod] && objTransitions[strMethod].actor,
+		actorClass = strMethod + "-trans";
+
+	document.getElementById("active-method").innerHTML = "Method: " + strMethod;
+	if (actor) {
+		actor.addClass(actorClass);
+		funOnTransitionEnd = function(e) {
+			if (e.srcElement === actor) {
+				// console.log(actorClass, ":", actor.hasClass("end"));
+				actor.addRemoveClass("end", !(actor.hasClass("end")));
+			}
+		};
+		actor.addEventListener("transitionend", funOnTransitionEnd, false);
+		window.setTimeout(function() { actor.addClass("end"); }, catchupDelay);
 	}
 }
 
 window.onload=function(){
-	var c = document.getElementById("container"),
-		w = document.getElementById("wrapper");
-	c.style.height = w.offsetHeight + "px";
-	c.style.width = w.offsetWidth + "px";
 	setContentAmount(10);
 	setMethod("doublescale");
+	setActive(document.getElementById("initialAmount"));
+	setActive(document.getElementById("initialMethod"));
 }
 
 //]]>
@@ -308,29 +311,32 @@ window.onload=function(){
 	</head>
 
 	<body>
-		<div style="position: absolute; top:0; left:0; bottom: 0; width: 1000px; height: 1080px; background: lightblue; overflow:hidden;" class="">
-			<div style="position: relative; left: 10px; top: 10px; width: 980px; height: 1060px; overflow:hidden;" class="hwaccel" id="wrapper">
-				<div style="position: absolute; background-color: orange;overflow:hidden;" id="container" class="hwaccel"></div>
+		<div class="frame">
+			<div id="outer" class="outer hwaccel">
+				<div id="inner" class="inner hwaccel"></div>
 			</div>
 		</div>
 
 		<div class="controls">
-			<input type="button" onclick="setContentAmount(2)"    value="Set 2 Elements" /><br>
-			<input type="button" onclick="setContentAmount(20)"   value="Set 20 Elements" /><br>
-			<input type="button" onclick="setContentAmount(200)"  value="Set 200 Elements" /><br>
-			<input type="button" onclick="setContentAmount(500)"  value="Set 500 Elements" /><br>
-			<input type="button" onclick="setContentAmount(1000)" value="Set 1000 Elements" /><br>
-			<input type="button" onclick="setContentAmount(1500)" value="Set 1500 Elements" /><br>
-			<input type="button" onclick="setContentAmount(2000)" value="Set 2000 Elements" /><br><br>
-			<input type="button" onclick="setMethod('clip')"      value="Set Method Clip" /><br>
-			<input type="button" onclick="setMethod('opacity')"   value="Set Method Opacity" /><br>
-			<input type="button" onclick="setMethod('move')"      value="Set Method Move" /><br>
-			<input type="button" onclick="setMethod('scale')"     value="Set Method Scale" /><br>
-			<input type="button" onclick="setMethod('doublescale')" value="Set Method Double Scale" /><br>
-			<input type="button" onclick="setMethod('matrix')"    value="Set Method Matrix" /><br>
-			<input type="button" onclick="setMethod('mask')"      value="Set Method Mask" /><br>
-			<input type="button" onclick="setMethod('height')"    value="Set Method Height" /><br><br>
-			<input type="button" onclick="setMethod('none')"      value="Remove Transition" /><br><br>
+			<h4 id="active-method"></h4>
+			<h4 id="content-amount"></h4>
+			<input type="button" class="amount-button" onclick="setContentAmount(2);    setActive(this);" value="Set 2 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(10);   setActive(this);" value="Set 10 Elements" id="initialAmount" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(20);   setActive(this);" value="Set 20 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(200);  setActive(this);" value="Set 200 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(500);  setActive(this);" value="Set 500 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(1000); setActive(this);" value="Set 1000 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(1500); setActive(this);" value="Set 1500 Elements" /><br>
+			<input type="button" class="amount-button" onclick="setContentAmount(2000); setActive(this);" value="Set 2000 Elements" /><br><br>
+			<input type="button" class="method-button" onclick="setMethod('clip');        setActive(this);" value="Set Method Clip" /><br>
+			<input type="button" class="method-button" onclick="setMethod('opacity');     setActive(this);" value="Set Method Opacity" /><br>
+			<input type="button" class="method-button" onclick="setMethod('move');        setActive(this);" value="Set Method Move" /><br>
+			<input type="button" class="method-button" onclick="setMethod('scale');       setActive(this);" value="Set Method Scale" /><br>
+			<input type="button" class="method-button" onclick="setMethod('doublescale'); setActive(this);" value="Set Method Double Scale" id="initialMethod" /><br>
+			<input type="button" class="method-button" onclick="setMethod('matrix');      setActive(this);" value="Set Method Matrix" /><br>
+			<input type="button" class="method-button" onclick="setMethod('mask');        setActive(this);" value="Set Method Mask" /><br>
+			<input type="button" class="method-button" onclick="setMethod('height');      setActive(this);" value="Set Method Height" /><br><br>
+			<input type="button" class="method-button" onclick="setMethod('none');        setActive(this);" value="Remove Transition" /><br><br>
 			<input type="button" onclick="window.location.reload()" value="Reload the page" />
 		</div>
 	</body>
